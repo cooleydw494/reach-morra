@@ -100,6 +100,7 @@ export const main = Reach.App(() => {
     each([PlayerOne, PlayerTwo], () => {
       interact.seeResult(NOBODY);
     });
+
     continue;
   }
 

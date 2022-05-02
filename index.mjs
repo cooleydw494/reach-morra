@@ -27,10 +27,10 @@ const Player = (Who) => ({
     // I used random() * max -1 and then added 1 because 0 isn't a real option
     const hand = (Math.floor(Math.random() * 4) + 1);
     console.log(`${Who} threw a hand of ${hand} fingers.`);
-    if (Math.random() <= 0.01) {
+    if (Math.random() <= 0.05) {
       for (let i = 0; i < 10; i++) {
-        console.log(`  ${Who} takes their sweet time...`);
-        await stdlib.wait(1);
+        console.log(`${Who} takes their sweet time...`);
+        await reach.wait(1);
       }
     }     
     return hand;
@@ -39,20 +39,22 @@ const Player = (Who) => ({
     // I used random() * max -1 and then added 1 because 0 isn't a real option
     const guess = (Math.floor(Math.random() * 9) + 1);
     console.log(`${Who} guessed ${guess}.`);
-    if (Math.random() <= 0.01) {
+    if (Math.random() <= 0.05) {
       for (let i = 0; i < 10; i++) {
-        console.log(`  ${Who} takes their sweet time...`);
-        await stdlib.wait(1);
+        console.log(`${Who} takes their sweet time...`);
+        await reach.wait(1);
       }
     }     
     return guess;
   },
   seeResult: (result) => {
     console.log(`${Who} saw that ${RESULT[result]} guessed correctly this round.`);
-    console.log(`Time to play again`);
+    if (RESULT[result] === 'nobody') {
+      console.log(`Time to play again`);
+    }
   },
   informTimeout: (whoTimedOut) => {
-    console.log(`${PLAYERNAMES[whoTimedOut]} took their sweet time and caused a timeout, sorry! Funds were resolved to ${Who}`);
+    console.log(`${Who} observed that ${PLAYERNAMES[whoTimedOut]} took their sweet time and caused a timeout!`);
   }
 });
 
