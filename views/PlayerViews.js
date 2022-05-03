@@ -10,22 +10,91 @@ exports.GetHand = class extends React.Component {
         const { parent, playable, hand } = this.props;
         return (
             <div>
-                {hand ? 'It was a draw! Pick again.' : ''}
+                {hand ? 'Nobody won! Time to play again. (Don\'t forget your funds are still locked in the contract!' : ''}
                 <br />
                 {!playable ? 'Please wait...' : ''}
                 <br />
                 <button
                     disabled={!playable}
-                    onClick={() => parent.playHand('ROCK')}
-                >Rock</button>
+                    onClick={() => parent.playHand(0)}
+                >0</button>
                 <button
                     disabled={!playable}
-                    onClick={() => parent.playHand('PAPER')}
-                >Paper</button>
+                    onClick={() => parent.playHand(1)}
+                >1</button>
                 <button
                     disabled={!playable}
-                    onClick={() => parent.playHand('SCISSORS')}
-                >Scissors</button>
+                    onClick={() => parent.playHand(2)}
+                >2</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.playHand(3)}
+                >3</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.playHand(4)}
+                >4</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.playHand(5)}
+                >5</button>
+            </div>
+        );
+    }
+}
+
+exports.GetHand = class extends React.Component {
+    render() {
+        const { parent, playable, hand } = this.props;
+        return (
+            <div>
+                <br />
+                {!playable ? 'Please wait...' : ''}
+                <br />
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(0)}
+                >0</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(1)}
+                >1</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(2)}
+                >2</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(3)}
+                >3</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(4)}
+                >4</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(5)}
+                >5</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(6)}
+                >6</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(7)}
+                >7</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(8)}
+                >8</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(9)}
+                >9</button>
+                <button
+                    disabled={!playable}
+                    onClick={() => parent.sendGuess(10)}
+                >10</button>
             </div>
         );
     }

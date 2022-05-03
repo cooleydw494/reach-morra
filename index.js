@@ -60,7 +60,7 @@ class Player extends React.Component {
     this.setState({ view: 'WaitingForResults', hand });
     return hand;
   }
-  async getGuess() {
+  async getGuess() { // Fun([], UInt)
     const guess = await new Promise(resolveGuessP => {
       this.setState({ view: 'GetGuess', playable: true, resolveGuessP });
     });
@@ -85,7 +85,7 @@ class Deployer extends Player {
     this.setState({ view: 'Deploying', ctc });
     this.wager = reach.parseCurrency(this.state.wager); // UInt
     this.deadline = { ETH: 10, ALGO: 100, CFX: 1000 }[reach.connector]; // UInt
-    backend.Alice(ctc, this);
+    backend.PlayerOne(ctc, this);
     const ctcInfoStr = JSON.stringify(await ctc.getInfo(), null, 2);
     this.setState({ view: 'WaitingForAttacher', ctcInfoStr });
   }
@@ -100,7 +100,7 @@ class Attacher extends Player {
   attach(ctcInfoStr) {
     const ctc = this.props.acc.contract(backend, JSON.parse(ctcInfoStr));
     this.setState({ view: 'Attaching' });
-    backend.Bob(ctc, this);
+    backend.PlayerTwo(ctc, this);
   }
   async acceptWager(wagerAtomic) { // Fun([UInt], Null)
     const wager = reach.formatCurrency(wagerAtomic, 4);
