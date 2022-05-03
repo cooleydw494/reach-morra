@@ -15,7 +15,7 @@ reach.setWalletFallback(reach.walletFallback({
 
 const GUESS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const HAND = [0, 1, 2, 3, 4, 5];
-const RESULT = ['nobody', 'Player One', 'Player Two'];
+const RESULT = ['Nobody wins :(', 'Player One Wins!', 'Player Two Wins'];
 const PLAYERNAMES = ['Player One', 'Player Two'];
 
 const { standardUnit } = reach;

@@ -74,7 +74,7 @@ exports.WaitingForTurn = class extends React.Component {
         return (
             <div>
                 Waiting for the other player...
-                <br />Think about which move you want to play.
+                <br />Think about the number of fingers you want to throw.
             </div>
         );
     }

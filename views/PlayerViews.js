@@ -10,7 +10,9 @@ exports.GetHand = class extends React.Component {
         const { parent, playable, hand } = this.props;
         return (
             <div>
-                {hand ? 'Nobody won! Time to play again. (Don\'t forget your funds are still locked in the contract!' : ''}
+                {playable && !hand ? 'How many fingers do you to throw for your hand?' : ''}
+                <br />
+                {hand ? 'Nobody won! Time to play again, choose your fingers!' : ''}
                 <br />
                 {!playable ? 'Please wait...' : ''}
                 <br />
@@ -43,11 +45,12 @@ exports.GetHand = class extends React.Component {
     }
 }
 
-exports.GetHand = class extends React.Component {
+exports.GetGuess = class extends React.Component {
     render() {
         const { parent, playable, hand } = this.props;
         return (
             <div>
+                {playable ? 'Make a guess of the total amount of fingers' : ''}
                 <br />
                 {!playable ? 'Please wait...' : ''}
                 <br />
